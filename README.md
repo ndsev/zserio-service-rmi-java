@@ -1,6 +1,6 @@
-# ZserioServiceRmi library
+# Zserio Service RMI backend
 
-Sample implementation of Zserio service RMI backend in Java.
+Sample implementation of Zserio Service RMI backend in **Java**.
 
 # Prerequisites
 
