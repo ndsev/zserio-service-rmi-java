@@ -4,29 +4,36 @@ Sample implementation of Zserio Service RMI backend in **Java**.
 
 # Prerequisites
 
-   1. Java SDK
-   2. Zserio Java runtime library (`zserio_runtime.jar`)
-   3. Zserio compiler (`zserio.jar`)
-
-> Zserio prerequisites are included in this repo in 3rdparty folder.
+1. Java SDK
+2. Apache Maven
 
 # Usage
 
 ## Calculator Example
 
 ```bash
-mkdir build
-java -jar 3rdparty/zserio.jar \
-     -src examples/zserio/service/rmi/examples/calculator calculator.zs -java build \
-     -setTopLevelPackage zserio.service.rmi.examples.calculator.gen
-javac -d build -cp 3rdparty/zserio_runtime.jar \
-      src/zserio/service/rmi/*.java \
-      examples/zserio/service/rmi/examples/calculator/*.java \
-      build/zserio/service/rmi/examples/calculator/gen/calculator/*.java
-java -cp 3rdparty/zserio_runtime.jar:build zserio.service.rmi.examples.calculator.CalculatorServer &
-java -cp 3rdparty/zserio_runtime.jar:build zserio.service.rmi.examples.calculator.CalculatorClient
-# follow client's instructions
-# ...
-# pres q + ENTER to quit the client
-fg # and pres Ctrl+C to quit the server
+# download the latest zserio version
+mvn dependency:copy -Dmaven.repo.local="build/download" \
+        -Dartifact=io.github.ndsev:zserio:LATEST \
+        -DoutputDirectory="build" -Dmdep.stripVersion=true
+
+# download the latest zserio runtime version
+mvn dependency:copy -Dmaven.repo.local="build/download" \
+        -Dartifact=io.github.ndsev:zserio-runtime:LATEST \
+        -DoutputDirectory="build" -Dmdep.stripVersion=true
+
+# generate example using Zserio
+java -jar build/zserio.jar \
+     -src examples/rmi/examples/calculator calculator.zs -java build \
+     -setTopLevelPackage rmi.examples.calculator.gen
+
+# compile example
+javac -d build -cp build/zserio-runtime.jar \
+      src/rmi/*.java \
+      examples/rmi/examples/calculator/*.java \
+      build/rmi/examples/calculator/gen/calculator/*.java
+
+# run example
+java -cp build/zserio-runtime.jar:build rmi.examples.calculator.CalculatorServer &
+java -cp build/zserio-runtime.jar:build rmi.examples.calculator.CalculatorClient
 ```
