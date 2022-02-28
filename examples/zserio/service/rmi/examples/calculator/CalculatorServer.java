@@ -1,9 +1,9 @@
-package rmi.examples.calculator;
+package zserio.service.rmi.examples.calculator;
 
 import java.math.BigInteger;
 import java.lang.Math;
 
-import rmi.RMIServer;
+import zserio.service.rmi.RMIServer;
 
 import rmi.examples.calculator.gen.calculator.Calculator;
 import rmi.examples.calculator.gen.calculator.I32;

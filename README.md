@@ -24,16 +24,16 @@ mvn dependency:copy -Dmaven.repo.local="build/download" \
 
 # generate example using Zserio
 java -jar build/zserio.jar \
-     -src examples/rmi/examples/calculator calculator.zs -java build \
+     -src examples/zserio/service/rmi/examples/calculator calculator.zs -java build \
      -setTopLevelPackage rmi.examples.calculator.gen
 
 # compile example
 javac -d build -cp build/zserio-runtime.jar \
-      src/rmi/*.java \
-      examples/rmi/examples/calculator/*.java \
+      src/zserio/service/rmi/*.java \
+      examples/zserio/service/rmi/examples/calculator/*.java \
       build/rmi/examples/calculator/gen/calculator/*.java
 
 # run example
-java -cp build/zserio-runtime.jar:build rmi.examples.calculator.CalculatorServer &
-java -cp build/zserio-runtime.jar:build rmi.examples.calculator.CalculatorClient
+java -cp build/zserio-runtime.jar:build zserio.service.rmi.examples.calculator.CalculatorServer &
+java -cp build/zserio-runtime.jar:build zserio.service.rmi.examples.calculator.CalculatorClient
 ```

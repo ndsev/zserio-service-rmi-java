@@ -1,4 +1,4 @@
-package rmi;
+package zserio.service.rmi;
 
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;

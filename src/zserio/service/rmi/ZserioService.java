@@ -1,4 +1,4 @@
-package rmi;
+package zserio.service.rmi;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

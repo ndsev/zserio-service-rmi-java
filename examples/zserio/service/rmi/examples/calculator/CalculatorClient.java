@@ -1,8 +1,8 @@
-package rmi.examples.calculator;
+package zserio.service.rmi.examples.calculator;
 
 import java.util.Scanner;
 
-import rmi.RMIClient;
+import zserio.service.rmi.RMIClient;
 
 import rmi.examples.calculator.gen.calculator.Calculator;
 import rmi.examples.calculator.gen.calculator.I32;
