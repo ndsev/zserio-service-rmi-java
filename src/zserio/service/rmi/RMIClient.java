@@ -64,7 +64,7 @@ public class RMIClient implements ServiceClientInterface
      * Implementation of ServiceClientInterface::callMethod.
      */
     @Override
-    public <T extends Writer> byte[] callMethod(String methodName, ServiceData<T> request, Object context)
+    public byte[] callMethod(String methodName, ServiceData<? extends Writer> request, Object context)
     {
         try
         {

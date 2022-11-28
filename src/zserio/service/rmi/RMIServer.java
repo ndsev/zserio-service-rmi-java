@@ -35,7 +35,7 @@ public class RMIServer implements ZserioService
     @Override
     public byte[] callMethod(String methodName, byte[] requestData) throws RemoteException
     {
-        final ServiceData<?> serviceData = serviceImpl.callMethod(methodName, requestData, null);
+        final ServiceData<? extends Writer> serviceData = serviceImpl.callMethod(methodName, requestData, null);
         return serviceData.getByteArray();
     }
 
